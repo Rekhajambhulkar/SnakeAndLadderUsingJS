@@ -1,13 +1,15 @@
-const lib = require("./lib")
+const lib = require("./lib.js");
 
 console.log("Welcome in Snake And Ladder Simulator Program")
 
 let playerOnePosition = 0;
 let winPoint = 100;
+let playGame = 0;
 
 while(playerOnePosition < 100){
     let random = lib.rollDice();
     let option = lib.checkOptions();
+    playGame++;
     switch(option){
         case 1:
             console.log("Palyer not play");
@@ -26,14 +28,18 @@ while(playerOnePosition < 100){
             playerOnePosition -= random;
             //In case the player position moves below 0, then the player restarts from 0
                 if (playerOnePosition < 0) {
-                    playerOnePosition = 0;
-                } else{
-                    playerOnePosition -= random;
-                }
-            break;
+                   playerOnePosition = 0;
+                } 
+                break;
         default:
             console.log("Something Wrong");          
     }
-    console.log("Player 1 position is:" + playerOnePosition)
-}
 
+    console.log("Player 1 position is:" + playerOnePosition)
+    if(playerOnePosition < 100){
+        continue;
+    }else{
+        console.log("Number of time the dice Was Palyed by player1: " + playGame + " times");
+        break;
+    }
+}
