@@ -3,5 +3,5 @@ module.exports.rollDice = () => {
     }
 
 module.exports.checkOptions = () => {
-    return Math.floor(Math.random() * 10) % 3;
+    return Math.floor(Math.random() * 10) % 3 + 1;
 }

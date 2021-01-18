@@ -15,6 +15,11 @@ while(playerOnePosition < 100){
         case 2:
             console.log("Player got the ladder");
             playerOnePosition += random;
+            // In case the Player position go above 100,the player stay in the same previous
+				// position till the player gets no that adds to 100.
+			if (playerOnePosition > 100) {
+				playerOnePosition -= random;
+			}
             break;
         case 3:
             console.log("oops! Palyer got the snake");
